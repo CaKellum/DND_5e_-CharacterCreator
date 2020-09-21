@@ -36,6 +36,7 @@ public class MainInterface {
                     mainLabel.setText(String.valueOf(i));
                 });
         homePanel.add(butt, BorderLayout.SOUTH);
+
         return homePanel;
     }
 
