@@ -10,9 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 
 public class MainInterface {
 
-    JLabel mainLabel  = new JLabel("text");
-    int i = 0;
-
     public MainInterface(){
         JFrame display = globalContainer(homePanel());
         display.setVisible(true);
@@ -28,16 +25,26 @@ public class MainInterface {
 
     private JPanel homePanel(){
         JPanel homePanel  = new JPanel(new BorderLayout());
-        homePanel.add(mainLabel, BorderLayout.CENTER);
-        JButton butt = new JButton("add one");
-        butt.addActionListener(
-                e -> {
-                    i++;
-                    mainLabel.setText(String.valueOf(i));
-                });
-        homePanel.add(butt, BorderLayout.SOUTH);
-
+        homePanel.add(LabelAdd(), BorderLayout.NORTH);
         return homePanel;
+    }
+
+    private JPanel LabelAdd() {
+        JPanel labelPanel = new JPanel();
+        labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.PAGE_AXIS));
+        JLabel strengthLabel = new JLabel("strenghth"),
+                dexterityLabel = new JLabel("dexterity"),
+                constitutionLabel = new JLabel("costitution"),
+                intelligenceLabel = new JLabel("inteligence"),
+                wisdomLabel = new JLabel("wisdom"),
+                charismaLabel = new JLabel("charisma");
+        labelPanel.add(strengthLabel);
+        labelPanel.add(dexterityLabel);
+        labelPanel.add(constitutionLabel);
+        labelPanel.add(intelligenceLabel);
+        labelPanel.add(wisdomLabel);
+        labelPanel.add(charismaLabel);
+        return labelPanel;
     }
 
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
